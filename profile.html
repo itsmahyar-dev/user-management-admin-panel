@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Panel</title>
+
+    <!-- Page Styles -->
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/profile.css" />
+  </head>
+
+  <body>
+    <!-- Profile Container -->
+    <div class="profile-container">
+      <!-- Profile Header -->
+      <div class="profile-header">
+        <h2>Welcome, <span id="user-name"></span></h2>
+      </div>
+
+      <!-- User Information -->
+      <div class="profile-details">
+        <div class="user-info">
+          <p>
+            <strong>First Name</strong>
+            <span id="first-name"></span>
+          </p>
+
+          <p>
+            <strong>Last Name</strong>
+            <span id="last-name"></span>
+          </p>
+
+          <p>
+            <strong>Email</strong>
+            <span id="email"></span>
+          </p>
+
+          <p>
+            <strong>Age</strong>
+            <span id="age"></span>
+          </p>
+
+          <p>
+            <strong>Gender</strong>
+            <span id="gender"></span>
+          </p>
+        </div>
+
+        <!-- Profile Actions -->
+        <div class="action-buttons">
+          <button id="logout-btn" class="logout-btn">Logout</button>
+
+          <button
+            id="change-password-btn"
+            class="change-password-btn"
+          >
+            Change Password
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div id="change-password-modal" class="modal">
+      <div class="modal-content">
+        <!-- Close Modal Button -->
+        <span class="close-btn">&times;</span>
+
+        <h3>Change Password</h3>
+
+        <!-- Change Password Form -->
+        <form id="change-password-form">
+          <!-- Current Password -->
+          <div class="input-group">
+            <label for="current-password">Current Password</label>
+            <input
+              type="password"
+              id="current-password"
+              placeholder="Enter your current password"
+              required
+            />
+          </div>
+
+          <!-- New Password -->
+          <div class="input-group">
+            <label for="new-password">New Password</label>
+            <input
+              type="password"
+              id="new-password"
+              placeholder="Enter your new password"
+              required
+            />
+          </div>
+
+          <!-- Confirm New Password -->
+          <div class="input-group">
+            <label for="confirm-password">Confirm New Password</label>
+            <input
+              type="password"
+              id="confirm-password"
+              placeholder="Confirm your new password"
+              required
+            />
+          </div>
+
+          <!-- Submit Password Change -->
+          <button type="submit" class="change-password-btn">
+            Change Password
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Page JavaScript -->
+    <script src="js/profile.js"></script>
+  </body>
+</html>

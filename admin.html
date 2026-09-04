@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Admin Panel</title>
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <!-- Global and Page-Specific Styles -->
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/admin.css" />
+  </head>
+
+  <body>
+    <!-- Main Admin Container -->
+    <div class="admin-container">
+
+      <!-- Admin Header -->
+      <div class="admin-header">
+        <h2>Admin Panel</h2>
+
+        <!-- Logout Button -->
+        <button id="logout-btn" class="logout-btn">Logout</button>
+      </div>
+
+      <!-- User Management Section -->
+      <h3>User List</h3>
+
+      <!-- Responsive Table Wrapper -->
+      <div class="table-wrapper">
+        <table id="user-list">
+
+          <!-- Table Header -->
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <!-- User Rows Are Generated Dynamically -->
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Edit User Modal -->
+    <div id="edit-user-modal" class="modal">
+      <div class="modal-content">
+
+        <!-- Close Modal Button -->
+        <span class="close-btn">&times;</span>
+
+        <h3>Edit User</h3>
+
+        <!-- Edit User Form -->
+        <form id="edit-user-form">
+
+          <!-- First Name -->
+          <div class="input-group">
+            <label for="edit-first-name">First Name</label>
+            <input
+              type="text"
+              id="edit-first-name"
+              placeholder="Enter first name"
+              required
+            />
+          </div>
+
+          <!-- Last Name -->
+          <div class="input-group">
+            <label for="edit-last-name">Last Name</label>
+            <input
+              type="text"
+              id="edit-last-name"
+              placeholder="Enter last name"
+              required
+            />
+          </div>
+
+          <!-- Age -->
+          <div class="input-group">
+            <label for="edit-age">Age</label>
+            <input
+              type="number"
+              id="edit-age"
+              placeholder="Enter age"
+              required
+            />
+          </div>
+
+          <!-- Gender -->
+          <div class="input-group">
+            <label for="edit-gender">Gender</label>
+
+            <div class="select-wrapper">
+              <select id="edit-gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+
+              <span class="select-arrow"></span>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="input-group">
+            <label for="edit-email">Email</label>
+            <input
+              type="email"
+              id="edit-email"
+              placeholder="Enter new Email"
+              required
+            />
+          </div>
+
+          <!-- Password -->
+          <div class="input-group">
+            <label for="edit-password">Password</label>
+            <input
+              type="text"
+              id="edit-password"
+              placeholder="Enter new password"
+              required
+            />
+          </div>
+
+          <!-- User Role -->
+          <div class="input-group">
+            <label for="edit-role">Role</label>
+
+            <div class="select-wrapper">
+              <select id="edit-role" required>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </select>
+
+              <span class="select-arrow"></span>
+            </div>
+          </div>
+
+          <!-- Submit Changes -->
+          <button type="submit" class="edit-user-btn">
+            Save Changes
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Page JavaScript -->
+    <script src="js/admin.js"></script>
+  </body>
+</html>

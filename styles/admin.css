@@ -1,0 +1,953 @@
+/* ========================================
+   Admin Container
+======================================== */
+
+.admin-container {
+  width: min(1100px, calc(100% - 32px));
+  max-height: calc(100vh - 80px);
+  margin: 36px auto;
+  padding: 30px;
+
+  background: rgba(15, 23, 42, 0.86);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 24px 0 0 24px;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.42),
+    0 0 60px rgba(34, 211, 238, 0.025);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: thin;
+  scrollbar-color: #33445e transparent;
+}
+
+/* ========================================
+   Admin Scrollbar
+======================================== */
+
+.admin-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.admin-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin-container::-webkit-scrollbar-thumb {
+  background: #33445e;
+  border-radius: 10px;
+}
+
+/* ========================================
+   Admin Header
+======================================== */
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding-bottom: 24px;
+  border-bottom: 1px solid #202b3f;
+}
+
+.admin-header h2 {
+  margin: 0;
+
+  color: #f8fafc;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  line-height: 1.2;
+}
+
+.admin-header h2::after {
+  content: "";
+
+  display: block;
+  width: 45px;
+  height: 3px;
+
+  margin-top: 10px;
+  border-radius: 10px;
+
+  background: linear-gradient(90deg, #22d3ee, #6366f1);
+}
+
+/* ========================================
+   Logout Button
+======================================== */
+
+.logout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 92px;
+  height: 40px;
+  padding: 0 17px;
+
+  border: 1px solid #263850;
+  border-radius: 10px;
+
+  background: #101a2b;
+  color: #22d3ee;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #122237;
+  border-color: #22d3ee;
+  color: #67e8f9;
+
+  box-shadow: 0 8px 22px rgba(34, 211, 238, 0.1);
+
+  transform: translateY(-2px);
+}
+
+.logout-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ========================================
+   User List Title
+======================================== */
+
+.admin-container > h3 {
+  margin: 30px 0 17px;
+
+  color: #f1f5f9;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+/* ========================================
+   Table Wrapper
+======================================== */
+
+.table-wrapper {
+  width: 100%;
+  max-width: 100%;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  border: 1px solid #202c41;
+  border-radius: 15px;
+
+  background: #0a1220;
+
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: thin;
+  scrollbar-color: #33445e transparent;
+}
+
+.table-wrapper::-webkit-scrollbar {
+  height: 5px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #33445e;
+  border-radius: 10px;
+}
+
+/* ========================================
+   User Table
+======================================== */
+
+#user-list {
+  width: 100%;
+  min-width: 760px;
+
+  border: none;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  background: transparent;
+}
+
+/* ========================================
+   Table Head
+======================================== */
+
+#user-list thead {
+  background: #101a2b;
+}
+
+#user-list th {
+  padding: 15px 16px;
+
+  color: #718096;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  border-bottom: 1px solid #202c41;
+}
+
+/* ========================================
+   Table Body
+======================================== */
+
+#user-list td {
+  padding: 16px;
+
+  color: #aeb9cc;
+  font-size: 13px;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  border-bottom: 1px solid #182438;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+#user-list tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+#user-list tbody tr:hover {
+  background: rgba(34, 211, 238, 0.025);
+}
+
+#user-list tbody tr:hover td {
+  color: #dce4f0;
+}
+
+#user-list tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ========================================
+   User Roles
+======================================== */
+
+#user-list .admin-role {
+  color: #a78bfa;
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(167, 139, 250, 0.12);
+}
+
+#user-list .user-role {
+  color: #aeb9cc;
+  font-weight: 500;
+}
+
+#user-list tbody tr:hover .admin-role {
+  color: #c4b5fd;
+}
+
+#user-list tbody tr:hover .user-role {
+  color: #dce4f0;
+}
+
+/* ========================================
+   Action Column
+======================================== */
+
+#user-list td:last-child {
+  min-width: 190px;
+}
+
+/* ========================================
+   Edit / Delete Buttons
+======================================== */
+
+.edit-btn,
+.delete-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  height: 35px;
+  padding: 0 12px;
+
+  border: 1px solid transparent;
+  border-radius: 9px;
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* ========================================
+   Edit Button
+======================================== */
+
+.edit-btn {
+  margin-right: 5px;
+
+  background: rgba(99, 102, 241, 0.09);
+  border-color: rgba(99, 102, 241, 0.2);
+
+  color: #a5b4fc;
+}
+
+.edit-btn:hover {
+  background: rgba(99, 102, 241, 0.16);
+  border-color: rgba(129, 140, 248, 0.4);
+
+  color: #c7d2fe;
+
+  box-shadow: 0 7px 18px rgba(99, 102, 241, 0.12);
+
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   Delete Button
+======================================== */
+
+.delete-btn {
+  background: rgba(244, 63, 94, 0.07);
+  border-color: rgba(244, 63, 94, 0.18);
+
+  color: #fb7185;
+}
+
+.delete-btn:hover {
+  background: rgba(244, 63, 94, 0.13);
+  border-color: rgba(251, 113, 133, 0.35);
+
+  color: #fda4af;
+
+  box-shadow: 0 7px 18px rgba(244, 63, 94, 0.1);
+
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   Button Active State
+======================================== */
+
+.edit-btn:active,
+.delete-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ========================================
+   Font Awesome Icons
+======================================== */
+
+.edit-btn i,
+.delete-btn i {
+  font-size: 10px;
+}
+
+/* ========================================
+   Tablet
+======================================== */
+
+@media (max-width: 768px) {
+  .admin-container {
+    width: min(calc(100% - 24px), 700px);
+
+    margin: 26px auto;
+    padding: 23px;
+
+    border-radius: 24px 0 0 24px;
+
+    max-height: calc(100vh - 56px);
+  }
+
+  .admin-header h2 {
+    font-size: 22px;
+  }
+
+  .admin-container > h3 {
+    margin-top: 25px;
+  }
+
+  #user-list th,
+  #user-list td {
+    padding: 14px 13px;
+  }
+}
+
+/* ========================================
+   Mobile
+======================================== */
+
+@media (max-width: 600px) {
+  .admin-container {
+    width: calc(100% - 20px);
+
+    margin: 20px auto;
+    padding: 18px;
+
+    border-radius: 24px 0 0 24px;
+
+    max-height: calc(100vh - 40px);
+  }
+
+  .admin-header {
+    align-items: center;
+    gap: 12px;
+
+    padding-bottom: 19px;
+  }
+
+  .admin-header h2 {
+    font-size: 20px;
+  }
+
+  .logout-btn {
+    min-width: 78px;
+    height: 36px;
+    padding: 0 12px;
+
+    border-radius: 9px;
+    font-size: 11px;
+  }
+
+  .admin-container > h3 {
+    margin: 23px 0 15px;
+    font-size: 17px;
+  }
+
+  /* Responsive Table */
+  .table-wrapper {
+    width: 100%;
+    max-width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    border-radius: 12px;
+  }
+
+  #user-list {
+    width: 760px;
+    min-width: 760px;
+  }
+
+  #user-list th,
+  #user-list td {
+    padding: 13px 12px;
+    font-size: 12px;
+  }
+
+  #user-list td:last-child {
+    min-width: 185px;
+  }
+
+  /* Mobile Action Buttons */
+  .edit-btn,
+  .delete-btn {
+    height: 33px;
+    padding: 0 10px;
+
+    border-radius: 8px;
+    font-size: 10px;
+  }
+}
+
+/* ========================================
+   Small Mobile
+======================================== */
+
+@media (max-width: 420px) {
+  .admin-container {
+    width: calc(100% - 16px);
+
+    margin: 16px auto;
+    padding: 14px;
+
+    border-radius: 24px 0 0 24px;
+
+    max-height: calc(100vh - 32px);
+  }
+
+  .admin-header {
+    gap: 8px;
+    padding-bottom: 17px;
+  }
+
+  .admin-header h2 {
+    font-size: 18px;
+  }
+
+  .logout-btn {
+    min-width: 70px;
+    height: 34px;
+    padding: 0 10px;
+
+    border-radius: 8px;
+    font-size: 10px;
+  }
+
+  .admin-container > h3 {
+    margin: 21px 0 14px;
+    font-size: 16px;
+  }
+
+  .table-wrapper {
+    border-radius: 10px;
+  }
+
+  #user-list {
+    width: 760px;
+    min-width: 760px;
+  }
+
+  #user-list th,
+  #user-list td {
+    padding: 11px 10px;
+    font-size: 11px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    height: 32px;
+    padding: 0 9px;
+    font-size: 10px;
+  }
+
+  .edit-btn i,
+  .delete-btn i {
+    font-size: 9px;
+  }
+}
+
+/* ========================================
+   Edit User Modal
+======================================== */
+
+.modal {
+  display: none;
+
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(2, 8, 23, 0.72);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  z-index: 9999;
+
+  overflow-y: auto;
+}
+
+/* ========================================
+   Modal Content
+======================================== */
+
+.modal-content {
+  position: relative;
+
+  width: min(500px, 100%);
+  max-height: calc(100vh - 48px);
+
+  padding: 30px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(15, 23, 42, 0.98),
+    rgba(17, 24, 39, 0.98)
+  );
+
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: 24px 0 0 24px;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    0 0 50px rgba(34, 211, 238, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  overflow-y: auto;
+
+  scrollbar-width: thin;
+  scrollbar-color: #33445e transparent;
+
+  animation: modalShow 0.25s ease;
+}
+
+/* ========================================
+   Modal Scrollbar
+======================================== */
+
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #33445e;
+  border-radius: 10px;
+}
+
+/* ========================================
+   Close Button
+======================================== */
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #aeb9cc;
+  font-size: 26px;
+  font-weight: 400;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #f8fafc;
+  transform: rotate(90deg);
+}
+
+/* ========================================
+   Modal Title
+======================================== */
+
+.modal-content h3 {
+  margin-bottom: 26px;
+
+  color: #f8fafc;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+/* ========================================
+   Form Input Groups
+======================================== */
+
+.modal-content .input-group {
+  margin-bottom: 18px;
+}
+
+.modal-content .input-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #aeb9cc;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ========================================
+   Form Inputs & Select
+======================================== */
+
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  height: 46px;
+
+  padding: 0 14px;
+
+  color: #f8fafc;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  background: rgba(10, 18, 32, 0.8);
+
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 12px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.modal-content input::placeholder {
+  color: #718096;
+}
+
+.modal-content input:hover,
+.modal-content select:hover {
+  border-color: rgba(148, 163, 184, 0.28);
+}
+
+.modal-content input:focus,
+.modal-content select:focus {
+  background: rgba(10, 18, 32, 0.95);
+
+  border-color: #22d3ee;
+
+  box-shadow:
+    0 0 0 3px rgba(34, 211, 238, 0.1),
+    0 0 20px rgba(34, 211, 238, 0.06);
+}
+
+/* ========================================
+   Select Wrapper
+======================================== */
+
+.modal-content .select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* ========================================
+   Custom Select
+======================================== */
+
+.modal-content .select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  padding-right: 45px;
+
+  cursor: pointer;
+}
+
+/* ========================================
+   Custom Select Arrow
+======================================== */
+
+.modal-content .select-arrow {
+  position: absolute;
+
+  top: 50%;
+  right: 16px;
+
+  width: 8px;
+  height: 8px;
+
+  border-right: 2px solid #22d3ee;
+  border-bottom: 2px solid #22d3ee;
+
+  transform: translateY(-65%) rotate(45deg);
+
+  pointer-events: none;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.modal-content .select-wrapper:hover .select-arrow {
+  border-color: #67e8f9;
+}
+
+.modal-content .select-wrapper:focus-within .select-arrow {
+  border-color: #22d3ee;
+
+  transform: translateY(-35%) rotate(225deg);
+}
+
+/* ========================================
+   Select Options
+======================================== */
+
+.modal-content .select-wrapper select option {
+  background: #0f172a;
+  color: #f8fafc;
+
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* ========================================
+   Save Changes Button
+======================================== */
+
+.edit-user-btn {
+  width: 100%;
+  height: 48px;
+
+  margin-top: 8px;
+
+  border: none;
+  border-radius: 13px;
+
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #22d3ee, #6366f1);
+
+  box-shadow:
+    0 10px 25px rgba(34, 211, 238, 0.12),
+    0 8px 20px rgba(99, 102, 241, 0.12);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.edit-user-btn:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.08);
+
+  box-shadow:
+    0 14px 30px rgba(34, 211, 238, 0.18),
+    0 12px 25px rgba(99, 102, 241, 0.18);
+}
+
+.edit-user-btn:active {
+  transform: translateY(0);
+}
+
+/* ========================================
+   Modal Animation
+======================================== */
+
+@keyframes modalShow {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ========================================
+   Responsive Modal
+======================================== */
+
+@media (max-width: 600px) {
+  .modal {
+    padding: 16px;
+  }
+
+  .modal-content {
+    width: 100%;
+
+    max-height: calc(100vh - 32px);
+
+    padding: 24px 20px;
+
+    border-radius: 20px;
+  }
+
+  .modal-content h3 {
+    font-size: 21px;
+    margin-bottom: 22px;
+  }
+}
+
+/* ========================================
+   Small Modal
+======================================== */
+
+@media (max-width: 420px) {
+  .modal {
+    padding: 12px;
+  }
+
+  .modal-content {
+    max-height: calc(100vh - 24px);
+
+    padding: 22px 16px;
+
+    border-radius: 18px;
+  }
+
+  .close-btn {
+    top: 12px;
+    right: 12px;
+
+    width: 32px;
+    height: 32px;
+
+    font-size: 23px;
+  }
+
+  .modal-content .input-group {
+    margin-bottom: 15px;
+  }
+
+  .modal-content input,
+  .modal-content select {
+    height: 44px;
+  }
+
+  .modal-content .select-wrapper select {
+    padding-right: 42px;
+  }
+
+  .modal-content .select-arrow {
+    right: 16px;
+
+    width: 7px;
+    height: 7px;
+  }
+}

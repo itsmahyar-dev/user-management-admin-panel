@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "firstName": "Mahyar",
+      "lastName": "Ghofrany",
+      "age": 18,
+      "gender": "male",
+      "email": "mahyarghofrany@gmail.com",
+      "password": "1212",
+      "role": "admin",
+      "id": "ZuVrxov-4bc"
+    },
+    {
+      "firstName": "danial",
+      "lastName": "Ghofrany",
+      "age": 22,
+      "gender": "male",
+      "email": "danialghofrany@gmail.com",
+      "password": "1",
+      "role": "user",
+      "id": "oG-hCDwN-8A"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
